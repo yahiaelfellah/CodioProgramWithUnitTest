@@ -1,8 +1,7 @@
 package dt;
 
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -110,14 +109,13 @@ public class SuvTest {
             assertEquals(type, resField.getType());
 
             // Test that it is private
-            assertEquals("Wrong modifier for field '" + fieldName + "'",
-                    modifier, resField.getModifiers());
+            assertEquals(modifier, resField.getModifiers());
 
             foundField = true;
         }
 
         // Test that we found it
-        assertTrue("Field '" + fieldName + "' was not found", foundField);
+        assertTrue(foundField, "Field '" + fieldName + "' was not found");
         return resField;
     }
 
@@ -134,7 +132,7 @@ public class SuvTest {
                 assertEquals(returnType, curMethod.getReturnType());
 
                 // Test that it is public
-                assertEquals("Wrong modifier for method '" + methodName + "'",
+                assertEquals(Float.parseFloat("Wrong modifier for method '" + methodName + "'"),
                         modifier, curMethod.getModifiers());
 
                 foundMethod = true;
@@ -143,7 +141,7 @@ public class SuvTest {
         }
 
         // Test that we found it
-        assertTrue("Method '" + methodName + "' was not found", foundMethod);
+        assertTrue(foundMethod, "Method '" + methodName + "' was not found");
     }
 
     @Test
